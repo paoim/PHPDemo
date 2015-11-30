@@ -1,4 +1,4 @@
-…or create a new repository on the command line
+#create a new repository on the command line
 echo "# PHPDemo" >> README.md
 git init
 git add README.md
@@ -6,6 +6,13 @@ git commit -m "first commit"
 git remote add origin https://github.com/paoim/PHPDemo.git
 git push -u origin master
 
-…or push an existing repository from the command line
+#push an existing repository from the command line
 it remote add origin https://github.com/paoim/PHPDemo.git
 git push -u origin master
+
+
+#Add folders or files to project
+git add .
+git commit -m "Message to commit"
+git pull --rebease
+git push
