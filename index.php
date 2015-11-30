@@ -15,7 +15,7 @@
 	<fieldset>
 		<legend>Demo List</legend>
 		<ul>
-			<li><a href="multipleupload/">Upload File Demo</a></li>
+			<li><a href="multipleupload/">Multiple Upload File Demo</a></li>
 			<li><a href="oopdemo/">OOP Demo</a></li>
 			<li><a href="jsdemo/">JS Demo</a></li>
 		</ul>
