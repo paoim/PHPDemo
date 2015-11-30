@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+body {
+	margin: 0;
+	padding: 0;
+	background: #f0f0f0;
+	font-family: sans-serif, serif;
+}
+
+fieldset {
+	width: 350px;
+	margin: 20px auto;
+	font-weight: bold;
+	border-radius: 2px;
+	border: 1px inset #ccccee;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	padding: 4px;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 1px;
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	background-color: #ddddff;
+}
+
+a:hover, a:active {
+	background-color: #b0b0ff;
+}
