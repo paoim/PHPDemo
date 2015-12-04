@@ -2,7 +2,7 @@
  * @Author: Pao Im
  * @Date: Nov 27, 2015
  */
-(function(){
+(function() {
 	var data = {
 			'id' : 123,
 			'name' : 'Toyata Camarry 2009',
