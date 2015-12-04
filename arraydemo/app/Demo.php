@@ -1,7 +1,8 @@
 <?php
 
-require_once 'ArrayDemo.php';
-require_once '../util/arrayparser/ArrayParser.php';
+require_once 'KeyArray.php';
+require_once 'GroupArray.php';
+require_once 'ArrayAndObject.php';
 
 
 class Demo {
@@ -15,17 +16,23 @@ class Demo {
 	}
 	
 	public function run() {
-		$this->demoArray();
+		$this->testKeyArray();
 		$this->testGroupArray();
+		$this->testArrayObject();
 	}
 
 	protected function testGroupArray() {
-		$parser = new ArrayParser();
-		$parser->display();
+		$group = new GroupArray();
+		$group->display();
 	}
 	
-	protected function demoArray() {
-		$demo = new ArrayDemo();
+	protected function testKeyArray() {
+		$demo = new KeyArray();
+		$demo->display();
+	}
+	
+	protected function testArrayObject() {
+		$demo = new ArrayAndObject();
 		$demo->display();
 	}
 }

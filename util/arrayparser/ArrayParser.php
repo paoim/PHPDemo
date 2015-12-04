@@ -2,29 +2,15 @@
 
 class ArrayParser {
 	
-	public function display() {
-		$dataArray = $this->_getData();
-		$firstData = $this->_groupStyleOne($dataArray);
-		$secondData = $this->_groupStyleTwo($dataArray);
-		
-		echo "<pre>"; print_r($dataArray); echo "</pre>";
-		echo "<pre>"; print_r($firstData); echo "</pre>";
-		echo "<pre>"; print_r($secondData); echo "</pre>";
+	private static $_instance = NULL;
+	
+	public static function instance() {
+		if (! self::$_instance)
+			self::$_instance = new ArrayParser();
+		return self::$_instance;
 	}
 	
-	private function _groupStyleTwo($dataArray) {
-		$group = array();
-		foreach ($dataArray as $data) {
-			$group[$data['id']][] = $data;
-		}
-		$data = array();
-		foreach ($group as $arr) {
-			$data[] = $arr;
-		}
-		return $data;
-	}
-	
-	private function _groupStyleOne($dataArray) {
+	public function groupArrayByIdFirstStyle($dataArray) {
 		$result = array();
 		foreach ($dataArray as $data) {
 			$id = $data['id'];
@@ -41,21 +27,54 @@ class ArrayParser {
 		return $data;
 	}
 	
-	private function _getData() {
-		$dataArray = array(
-				array(
-						'id'			=> 1,
-						'name'		=> 'Dara'
-				),
-				array(
-						'id'			=> 2,
-						'name'		=> 'Hello'
-				),
-				array(
-						'id'			=> 1,
-						'name'		=> 'Sam'
-				)
-		);
-		return $dataArray;
+	public function groupArrayByIdSecondStyle($dataArray) {
+		$group = array();
+		foreach ($dataArray as $data) {
+			$group[$data['id']][] = $data;
+		}
+		$data = array();
+		foreach ($group as $arr) {
+			$data[] = $arr;
+		}
+		return $data;
+	}
+	
+	public function convertAssociateArrayToObjectFirst($associateArray) {
+		$JsonPhpObject = (object) $associateArray;
+		
+		return $JsonPhpObject;
+	}
+	
+	public function convertAssociateArrayToObjectSecond($associateArray) {
+		//Convert Associated Array to Json Object
+		$JsonObject = json_encode($associateArray);
+		
+		// Convert Json Object to Json PHP (Object in PHP)
+		$JsonPhpObject = json_decode($JsonObject);
+		
+		return $JsonPhpObject;
+	}
+	
+	public function convertJsonStringToObjectFirst($JsonString) {
+		// convert Json String into Associated Array
+		$associateArray = json_decode($JsonString, true);
+		
+		// Convert Associate Array to Object
+		$JsonPhpObject = (object) $associateArray;
+		
+		return $JsonPhpObject;
+	}
+	
+	public function convertJsonStringToObjectSecond($JsonString) {
+		// convert Json String into Associated Array
+		$associateArray = json_decode($JsonString, true);
+		
+		// Convert Associated Array to Json Object
+		$JsonObject = json_encode($associateArray);
+		
+		// Convert Json Object to Json PHP (Object in PHP)
+		$JsonPhpObject = json_decode($JsonObject);
+		
+		return $JsonPhpObject;
 	}
 }

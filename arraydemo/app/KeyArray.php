@@ -1,16 +1,15 @@
 <?php
 
-class ArrayDemo {
-	
-	function __construct() {
-		
-	}
+require_once 'InterfaceDisplay.php';
+
+
+class KeyArray implements InterfaceDisplay {
 	
 	public function display() {
+		echo "<pre>"; print_r("======================Key Array Demo==================="); echo "</pre>";
 		$this->_foreachKeyFirst();
 		$this->_foreachKeySecond();
 		$this->_foreachKeySolution();
-		$this->_arrayToObject();
 		
 		$math1 = "+300";
 		$math2 = "-125";
@@ -178,68 +177,6 @@ class ArrayDemo {
 				'unit_price'	=> ($value + $dpaymentfeevalue)*1.20
 		);
 		echo "<pre>"; print_r($test); echo "</pre>";
-		echo "<pre>"; print_r('======================================================='); echo "</pre>";
-	}
-	
-	private function _arrayToObject() {
-		$total_data = array(
-				array(
-						'order_total_id'	=> 216352,
-						'order_id'			=> 4796,
-						'code'				=> 'shipping',
-						'title'				=> 'Free shipping',
-						'text'				=> '2,50€',
-						'value'				=> 2.5000,
-						'sort_order'		=> 2
-				),
-				array(
-						'order_total_id'	=> 216353,
-						'order_id'			=> 4796,
-						'code'				=> 'd_payment_fee',
-						'title'				=> 'COD',
-						'text'				=> '1,00€',
-						'value'				=> 1.0000,
-						'sort_order'		=> 3
-				)
-		);
-		
-		
-		$fees_found = false;
-		$shipping_found = false;
-		foreach ($total_data as $arrays) {
-			if ($arrays['code'] == 'd_payment_fee') {
-				echo "<pre>"; print_r('d_payment_fee'); echo "</pre>";
-				$dpaymentfeetext = ' - ' .$arrays['title'];
-				$dpaymentfeevalue = $arrays['value']/1.20;
-				$fees_found = true;
-			} else if ($arrays['code'] == 'shipping') {
-				echo "<pre>"; print_r('shipping'); echo "</pre>";
-				$title = $arrays['title'];
-				$value = $arrays['value'];
-				$shipping_found = true;
-			}
-			if ($fees_found && $shipping_found) {
-				break;
-			}
-		}
-		$associateArray = array(
-				'name'			=> $title .$dpaymentfeetext,
-				'quantity'		=> 1,
-				'unit'			=> 'ks',
-				'unit_price'	=> ($value + $dpaymentfeevalue)*1.20
-		);
-		//Convert Associated Array to Json Object
-		$JsonObject = json_encode($associateArray);
-		// Convert Json Object to Json PHP (Object in PHP)
-		$JsonPhpObject = json_decode($JsonObject);
-		
-		// Short Convert
-		$TestObject = (object) $associateArray;
-		
-		echo "<pre>"; print_r($associateArray); echo "</pre>";
-		echo "<pre>"; print_r($JsonObject); echo "</pre>";
-		echo "<pre>"; print_r($JsonPhpObject); echo "</pre>";
-		echo "<pre>"; print_r($TestObject); echo "</pre>";
 		echo "<pre>"; print_r('======================================================='); echo "</pre>";
 	}
 }
