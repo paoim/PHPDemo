@@ -1,6 +1,7 @@
 <?php
 
-class Property {
+class Property
+{
 	
 	private $_name;
 	private $_keyword;
@@ -12,79 +13,93 @@ class Property {
 	private $_defaultData;
 	private $_comments = array();
 	
-	public function __construct() {
-		
-	}
-	
-	public function getName() {
+	public function getName()
+	{
 		return $this->_name;
 	}
 	
-	public function getKeyword() {
+	public function getKeyword()
+	{
 		return $this->_keyword;
 	}
 	
-	public function getStatic() {
+	public function getStatic()
+	{
 		return $this->_isStatic;
 	}
 	
-	public function getDataType() {
+	public function getDataType()
+	{
 		return $this->_dataType;
 	}
 	
-	public function getVisibility() {
+	public function getVisibility()
+	{
 		return $this->_visibility;
 	}
 	
-	public function getConstant() {
+	public function getConstant()
+	{
 		return $this->_isConstant;
 	}
 	
-	public function getDescription() {
+	public function getDescription()
+	{
 		return $this->_description;
 	}
 	
-	public function getDefaultData() {
+	public function getDefaultData()
+	{
 		return $this->_defaultData;
 	}
 	
-	public function getComments() {
+	public function getComments()
+	{
 		return $this->_comments;
 	}
 	
-	public function setName($name) {
+	public function setName($name)
+	{
 		$this->_name = $name;
 	}
 	
-	public function setKeyword($keyword) {
+	public function setKeyword($keyword)
+	{
 		$this->_keyword = $keyword;
 	}
 	
-	public function setStatic($isStatic) {
+	public function setStatic($isStatic)
+	{
 		$this->_isStatic = $isStatic;
 	}
 	
-	public function setDataType($dataType) {
+	public function setDataType($dataType)
+	{
 		$this->_dataType = $dataType;
 	}
 	
-	public function setVisibility($visibility) {
+	public function setVisibility($visibility)
+	{
 		$this->_visibility = $visibility;
 	}
 	
-	public function setConstant($isConstant) {
+	public function setConstant($isConstant)
+	{
 		$this->_isConstant = $isConstant;
 	}
 	
-	public function setDescription($description) {
+	public function setDescription($description)
+	{
 		$this->_description = $description;
 	}
 	
-	public function setDefaultData($defaultData) {
+	public function setDefaultData($defaultData)
+	{
 		$this->_defaultData = $defaultData;
 	}
 	
-	public function setComments($comments = array()) {
+	public function setComments($comments = array())
+	{
 		$this->_comments = $comments;
 	}
 }

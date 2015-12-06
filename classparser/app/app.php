@@ -2,12 +2,14 @@
 
 require_once 'controller/ClassController.php';
 
-class App {
+class App
+{
 	
 	private $_rFilePaths;
 	private static $_instance = NULL;
 	
-	private function __construct() {
+	private function __construct()
+	{
 		//FIXME - will change
 		$this->_rFilePaths = array(
 				'/home/pao/netsirv_ws/nodesirv/phplib/Core/Common/Accept.php',
@@ -21,13 +23,15 @@ class App {
 		);
 	}
 	
-	public static function instance() {
+	public static function instance()
+	{
 		if (! self::$_instance)
 			self::$_instance = new App();
 		return self::$_instance;
 	}
 	
-	public function run() {
+	public function run()
+	{
 		foreach ($this->_rFilePaths as $rFilePath) {
 			$file = new ClassController($rFilePath);
 			//$file->printData();

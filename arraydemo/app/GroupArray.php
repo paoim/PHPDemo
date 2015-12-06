@@ -4,9 +4,11 @@ require_once 'InterfaceDisplay.php';
 require_once '../util/arrayparser/ArrayParser.php';
 
 
-class GroupArray implements InterfaceDisplay {
+class GroupArray implements InterfaceDisplay
+{
 	
-	public function display() {
+	public function display()
+	{
 		echo "<pre>"; print_r("======================Group Array Demo==================="); echo "</pre>";
 		$parser = ArrayParser::instance();
 		
@@ -19,7 +21,8 @@ class GroupArray implements InterfaceDisplay {
 		echo "<pre>"; print_r($secondData); echo "</pre>";
 	}
 	
-	private function _getData() {
+	private function _getData()
+	{
 		$dataArray = array(
 				array(
 						'id'			=> 1,

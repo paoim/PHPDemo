@@ -3,7 +3,8 @@
 require_once 'model/core.php';
 require_once '../util/fileparser/FileParser.php';
 
-class ClassController extends FileParser {
+class ClassController extends FileParser
+{
 	
 	protected $dataArray = array();
 	
@@ -20,11 +21,13 @@ class ClassController extends FileParser {
 	private $_otherComments = array();
 	private $_otherCommentLines = array();
 	
-	public function __construct($rFilePath) {
+	public function __construct($rFilePath)
+	{
 		parent::__construct($rFilePath);
 	}
 	
-	public function parseDataFile() {
+	public function parseDataFile()
+	{
 		$this->_data = new Data();
 		foreach ($this->contents as $contents) {
 			foreach ($contents as $line) {
@@ -47,12 +50,14 @@ class ClassController extends FileParser {
 		}
 	}
 	
-	public function printData() {
+	public function printData()
+	{
 		echo "<pre>"; print_r($this->dataArray); echo "</pre>";
 		echo "<pre>"; print_r($this->contents); echo "</pre>";
 	}
 	
-	public function printHtml() {
+	public function printHtml()
+	{
 		foreach ($this->dataArray as $data) {
 			echo "<h1>" .$data->getName(). "</h1>";
 			echo "<p>" .$data->getDescription(). "</p>";
@@ -85,7 +90,8 @@ class ClassController extends FileParser {
 		}
 	}
 	
-	public function printGithub() {
+	public function printGithub()
+	{
 		foreach ($this->dataArray as $data) {
 			echo "<pre>";
 			echo "#[" .$data->getName(). "]()<br>";
@@ -130,7 +136,8 @@ class ClassController extends FileParser {
 		}
 	}
 	
-	private function _scanClass($line) {
+	private function _scanClass($line)
+	{
 		if (!$this->_isClassComment && $this->isComment($line)) {
 			$this->_classCommentLines[] = $line;
 			
@@ -202,7 +209,8 @@ class ClassController extends FileParser {
 		}
 	}
 	
-	private function _scanProperty($line) {
+	private function _scanProperty($line)
+	{
 		if ($this->_isClassComment) {
 			if ($this->isComment($line)) {
 				//echo "<div>" .$line. "</div><br>";
@@ -216,7 +224,8 @@ class ClassController extends FileParser {
 		}
 	}
 	
-	private function _scanMethod($line) {
+	private function _scanMethod($line)
+	{
 		if ($this->isMethod($line)) {
 			//echo "<div>" .$line. "</div><br>";
 		}

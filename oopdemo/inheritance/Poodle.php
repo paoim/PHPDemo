@@ -3,6 +3,7 @@
 require_once 'Dog.php';
 
 
-class Poodle extends Dog {
+class Poodle extends Dog
+{
 	
 }

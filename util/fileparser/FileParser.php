@@ -1,6 +1,7 @@
 <?php
 
-abstract class FileParser {
+abstract class FileParser
+{
 	
 	const COMMENT_START			= '/**';
 	const COMMENT_END			= '*/';
@@ -36,7 +37,8 @@ abstract class FileParser {
 	
 	protected $isClassComment = 0;
 	
-	public function __construct($rFilePath) {
+	public function __construct($rFilePath)
+	{
 		$this->_rFilePath = $rFilePath;
 		
 		$this->_readFile();
@@ -45,7 +47,8 @@ abstract class FileParser {
 	
 	abstract public function parseDataFile();
 	
-	public function display() {
+	public function display()
+	{
 		$i = 0;
 		foreach ($this->content_lines as $line) {
 			echo "<div id='line_".strlen($line)."_".$i."'>" .$line. "</div><br>";
@@ -53,7 +56,8 @@ abstract class FileParser {
 		}
 	}
 	
-	public function writeFile($content, $fileName) {
+	public function writeFile($content, $fileName)
+	{
 		if (isset($this->_wFileName)) {
 			$wFilePath = 'output/' .$fileName;
 			$fp = fopen($wFilePath, "w") or die("Unable to open file!");
@@ -64,7 +68,8 @@ abstract class FileParser {
 		}
 	}
 	
-	protected function getDesc($comments, $isMethod = true) {
+	protected function getDesc($comments, $isMethod = true)
+	{
 		$data = '';
 		if (count($comments) && count($comments[0])) {
 			$data = $this->cleanContent(str_replace(FileParser::COMMENT_START, '', $comments[0][0]));
@@ -91,7 +96,8 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getFinal($line) {
+	protected function getFinal($line)
+	{
 		$data = 'no';
 		if ($this->isContain($line, FileParser::FINAL_K)) {
 			$data = 'yes';
@@ -99,7 +105,8 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getAbstract($line) {
+	protected function getAbstract($line)
+	{
 		$data = 'no';
 		if ($this->isContain($line, FileParser::ABSTRACT_K)) {
 			$data = 'yes';
@@ -107,7 +114,8 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getStatic($line) {
+	protected function getStatic($line)
+	{
 		$data = 'no';
 		if ($this->isContain($line, FileParser::STATIC_K)) {
 			$data = 'yes';
@@ -115,7 +123,8 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getConst($line) {
+	protected function getConst($line)
+	{
 		$data = 'no';
 		if ($this->isContain($line, FileParser::CONST_K)) {
 			$data = 'yes';
@@ -123,7 +132,8 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getVisibility($line, $isMethod = true) {
+	protected function getVisibility($line, $isMethod = true)
+	{
 		$data = $isMethod ? FileParser::PUBLIC_V : '';
 		if ($this->isContain($line, FileParser::PRIVATE_V)) {
 			$data = FileParser::PRIVATE_V;
@@ -135,13 +145,15 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getName($line) {
+	protected function getName($line)
+	{
 		$data = str_replace(FileParser::CURLY_BRACE_START, '', $line);
 		$data = str_replace(';', '', $data);
 		return $this->cleanContent($data);
 	}
 	
-	protected function getPropertyName($line) {
+	protected function getPropertyName($line)
+	{
 		$data = $this->_getPropertyLine($line)['Data'];
 		if ($this->isContentStartWith($data, FileParser::CONST_K)) {
 			$data = str_replace(FileParser::CONST_K, '', $data);
@@ -152,7 +164,8 @@ abstract class FileParser {
 		return $this->cleanContent($data);
 	}
 	
-	protected function getPropertyKeyword($line) {
+	protected function getPropertyKeyword($line)
+	{
 		$data = $this->_getPropertyLine($line)['Data'];
 		if ($this->isContain($data, FileParser::CONST_K)) {
 			$data = FileParser::CONST_K;
@@ -164,13 +177,15 @@ abstract class FileParser {
 		return $data;
 	}
 	
-	protected function getPropertyDefaultData($line) {
+	protected function getPropertyDefaultData($line)
+	{
 		$data = $this->_getPropertyLine($line)['Default'];
 		$data = str_replace(';', '', $data);
 		return $this->cleanContent($data);
 	}
 	
-	protected function getPropertyDataType($comments) {
+	protected function getPropertyDataType($comments)
+	{
 		$data = '';
 		foreach ($comments as $commentArray) {
 			foreach ($commentArray as $comment) {
@@ -184,7 +199,8 @@ abstract class FileParser {
 		}
 	}
 	
-	protected function getReturn($comments) {
+	protected function getReturn($comments)
+	{
 		$data = '';
 		foreach ($comments as $commentArray) {
 			foreach ($commentArray as $comment) {
@@ -209,35 +225,43 @@ abstract class FileParser {
 		return $this->cleanContent($data);
 	}
 	
-	protected function isContainAt($second) {
+	protected function isContainAt($second)
+	{
 		return ($this->isContentStartWith($second, FileParser::AT_PARAM) || $this->isContentStartWith($second, FileParser::AT_RETURN) || $this->isContentStartWith($second, FileParser::AT_VAR) || $this->isContentStartWith($second, FileParser::AT_SEE));
 	}
 	
-	protected function isStatement($line) {
+	protected function isStatement($line)
+	{
 		return ($this->isClass($line) || $this->isComment($line) || $this->isMethod($line) || $this->isReturn($line) || $this->isProperty($line) || $this->isStartCurlyBrace($line) || $this->isEndCurlyBrace($line));
 	}
 	
-	protected function isStartCurlyBrace($line) {
+	protected function isStartCurlyBrace($line)
+	{
 		return ($this->isContain($line, FileParser::CURLY_BRACE_START));
 	}
 	
-	protected function isEndCurlyBrace($line) {
+	protected function isEndCurlyBrace($line)
+	{
 		return ($this->isContain($line, FileParser::CURLY_BRACE_END));
 	}
 	
-	protected function isClass($line) {
+	protected function isClass($line)
+	{
 		return ($this->isContentStartWith($line, FileParser::CLASS_K) || $this->isContentStartWith($line, FileParser::TRAIT_K) || ($this->isContentStartWith($line, FileParser::ABSTRACT_K) && $this->isContain($line, FileParser::CLASS_K)) || $this->isContentStartWith($line, FileParser::INTERFACE_K));
 	}
 	
-	protected function isComment($line) {
+	protected function isComment($line)
+	{
 		return ($this->isContentStartWith($line, FileParser::COMMENT_START) || $this->isContentStartWith($line, FileParser::COMMENT_STAR) || $this->isContentStartWith($line, FileParser::COMMENT_END));
 	}
 	
-	protected function isEndComment($line) {
+	protected function isEndComment($line)
+	{
 		return ($this->isContain($line, FileParser::COMMENT_END));
 	}
 	
-	protected function isProperty($line) {
+	protected function isProperty($line)
+	{
 		if (!($this->isContain($line, FileParser::FUNCTION_K))) {
 			if (($this->isContentStartWith($line, FileParser::PUBLIC_V) || $this->isContentStartWith($line, FileParser::PROTECTED_V) || $this->isContentStartWith($line, FileParser::PRIVATE_V) || $this->isContentStartWith($line, FileParser::USE_K) || $this->isContentStartWith($line, FileParser::CONST_K))) {
 				return true;
@@ -246,37 +270,44 @@ abstract class FileParser {
 		return false;
 	}
 	
-	protected function isMethod($line) {
+	protected function isMethod($line)
+	{
 		return (($this->isContain($line, FileParser::FUNCTION_K)) && ($this->isContain($line, FileParser::PUBLIC_V) || $this->isContain($line, FileParser::PROTECTED_V) || $this->isContain($line, FileParser::PRIVATE_V) || $this->isContain($line, FileParser::USE_K) || $this->isContain($line, FileParser::CONST_K)));
 	}
 	
-	protected function isReturn($line) {
+	protected function isReturn($line)
+	{
 		return ($this->isContain($line, FileParser::RETURN_K));
 	}
 	
-	protected function isContain($line, $filter) {
+	protected function isContain($line, $filter)
+	{
 		return ($this->isContentStartWith($line, $filter) || $this->isContainWith($line, $filter));
 	}
 	
-	protected function isContentStartWith($content, $filter) {
+	protected function isContentStartWith($content, $filter)
+	{
 		$position = strpos($content, $filter, 0);//find from index zero
 
 		return ($position === 0);
 	}
 	
-	protected function isContainWith($content, $filter) {
+	protected function isContainWith($content, $filter)
+	{
 		//preg_match("/$filter/", $content)
 		return (strpos($content, $filter) > 0);
 	}
 	
-	private function _readFile() {
+	private function _readFile()
+	{
 		if (isset($this->_rFilePath)) {
 			$fp = fopen( $this->_rFilePath , 'r' ) or die("Unable to open file!");
 			$this->_readContent($fp);
 		}
 	}
 	
-	private function _readContent($fp) {
+	private function _readContent($fp)
+	{
 		$index = 0;
 		$newContents = array();
 		while(!feof($fp)) {
@@ -306,7 +337,8 @@ abstract class FileParser {
 		fclose($fp);
 	}
 	
-	private function _populateContent($newContents = array()) {
+	private function _populateContent($newContents = array())
+	{
 		$otherArray = array();
 		$isSingleClass = false;
 		if (count($newContents)) {
@@ -338,7 +370,8 @@ abstract class FileParser {
 		return $resultArray;
 	}
 	
-	private function _getPropertyLine($line) {
+	private function _getPropertyLine($line)
+	{
 		$default = '';
 		$data = $line;
 		if ($this->isContentStartWith($data, FileParser::PRIVATE_V)) {
@@ -364,12 +397,14 @@ abstract class FileParser {
 		return array('Data' => $data, 'Default' => $default);
 	}
 
-	protected function cleanContent($line) {
+	protected function cleanContent($line)
+	{
 
 		return ($this->isValidStr($line) ? trim($line) : "");
 	}
 
-	protected function isValidStr($str) {
+	protected function isValidStr($str)
+	{
 
 		return (isset($str) && strlen($str) > 0);
 	}

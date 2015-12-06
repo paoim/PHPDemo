@@ -1,6 +1,7 @@
 <?php
 
-class Method {
+class Method
+{
 	
 	private $_name;
 	private $_return;
@@ -11,35 +12,38 @@ class Method {
 	private $_description;
 	private $_comments = array();
 	
-	public function __construct() {
-		
-	}
-	
-	public function getName() {
+	public function getName()
+	{
 		return $this->_name;
 	}
 	
-	public function getFinal() {
+	public function getFinal()
+	{
 		return $this->_isFinal;
 	}
 	
-	public function getStatic() {
+	public function getStatic()
+	{
 		return $this->_isStatic;
 	}
 	
-	public function getAbstract() {
+	public function getAbstract()
+	{
 		return $this->_isAbstract;
 	}
 	
-	public function getVisibility() {
+	public function getVisibility()
+	{
 		return $this->_visibility;
 	}
 	
-	public function getReturn() {
+	public function getReturn()
+	{
 		return $this->_return;
 	}
 	
-	public function getDescription() {
+	public function getDescription()
+	{
 		return $this->_description;
 	}
 	
@@ -47,35 +51,43 @@ class Method {
 		return $this->_comments;
 	}
 	
-	public function setName($name) {
+	public function setName($name)
+	{
 		$this->_name = $name;
 	}
 	
-	public function setFinal($isFinal) {
+	public function setFinal($isFinal)
+	{
 		$this->_isFinal = $isFinal;
 	}
 	
-	public function setStatic($isStatic) {
+	public function setStatic($isStatic)
+	{
 		$this->_isStatic = $isStatic;
 	}
 	
-	public function setAbstract($isAbstract) {
+	public function setAbstract($isAbstract)
+	{
 		$this->_isAbstract = $isAbstract;
 	}
 	
-	public function setVisibility($visibility) {
+	public function setVisibility($visibility)
+	{
 		$this->_visibility = $visibility;
 	}
 	
-	public function setReturn($return) {
+	public function setReturn($return)
+	{
 		$this->_return = $return;
 	}
 	
-	public function setDescription($description) {
+	public function setDescription($description)
+	{
 		$this->_description = $description;
 	}
 	
-	public function setComments($comments = array()) {
+	public function setComments($comments = array())
+	{
 		$this->_comments = $comments;
 	}
 }

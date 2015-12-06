@@ -1,6 +1,7 @@
 <?php
 
-class UploadParser {
+class UploadParser
+{
 	
 	private $_files;
 	private $_extAllowed;
@@ -10,7 +11,8 @@ class UploadParser {
 	private $_failed = array();
 	private $_uploaded = array();
 	
-	public function __construct($files, $destination, $extAllowed, $sizeAllowed, $isNewFileName) {
+	public function __construct($files, $destination, $extAllowed, $sizeAllowed, $isNewFileName)
+	{
 		$this->_files = $files;
 		$this->_extAllowed = $extAllowed;
 		$this->_destination = $destination;
@@ -18,15 +20,18 @@ class UploadParser {
 		$this->_isNewFileName = $isNewFileName;
 	}
 	
-	public function getFails() {
+	public function getFails()
+	{
 		return $this->_failed;
 	}
 	
-	public function getUploads() {
+	public function getUploads()
+	{
 		return $this->_uploaded;
 	}
 	
-	public function upload() {
+	public function upload()
+	{
 		//echo "<pre>"; print_r(">>Start on upload..."); echo "</pre>";
 		if (!count($this->_files)) {
 			$this->_failed[] = "No files to upload, please click to upload!";

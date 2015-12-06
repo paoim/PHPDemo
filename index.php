@@ -1,9 +1,3 @@
-<?php
-
-// PHP Codes
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

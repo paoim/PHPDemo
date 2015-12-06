@@ -4,9 +4,11 @@ require_once 'InterfaceDisplay.php';
 require_once '../util/arrayparser/ArrayParser.php';
 
 
-class ArrayAndObject implements InterfaceDisplay {
+class ArrayAndObject implements InterfaceDisplay
+{
 	
-	public function display() {
+	public function display()
+	{
 		echo "<pre>"; print_r("======================Array and Object Demo==================="); echo "</pre>";
 		$parser = ArrayParser::instance();
 		
@@ -19,7 +21,8 @@ class ArrayAndObject implements InterfaceDisplay {
 		echo "<pre>"; print_r($secondData); echo "</pre>";
 	}
 	
-	private function _getData() {
+	private function _getData()
+	{
 		$total_data = array(
 				array(
 						'order_total_id'	=> 216352,

@@ -3,9 +3,11 @@
 require_once 'InterfaceDisplay.php';
 
 
-class KeyArray implements InterfaceDisplay {
+class KeyArray implements InterfaceDisplay
+{
 	
-	public function display() {
+	public function display()
+	{
 		echo "<pre>"; print_r("======================Key Array Demo==================="); echo "</pre>";
 		$this->_foreachKeyFirst();
 		$this->_foreachKeySecond();
@@ -35,7 +37,8 @@ class KeyArray implements InterfaceDisplay {
 		}, $arraySecond);
 	}
 	
-	private function _foreachKeyFirst() {
+	private function _foreachKeyFirst()
+	{
 		$dataArray = array(
 				array(
 						'order_total_id'	=> 214950,
@@ -78,7 +81,8 @@ class KeyArray implements InterfaceDisplay {
 		echo "<pre>"; print_r('======================================================='); echo "</pre>";
 	}
 	
-	private function _foreachKeySecond() {
+	private function _foreachKeySecond()
+	{
 		$total_data = array(
 				array(
 						'order_total_id'	=> 216352,
@@ -129,7 +133,8 @@ class KeyArray implements InterfaceDisplay {
 		echo "<pre>"; print_r('======================================================='); echo "</pre>";
 	}
 	
-	private function _foreachKeySolution() {
+	private function _foreachKeySolution()
+	{
 		$total_data = array(
 				array(
 						'order_total_id'	=> 216352,

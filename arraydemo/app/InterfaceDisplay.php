@@ -1,7 +1,8 @@
 <?php
 
 
-interface InterfaceDisplay {
+interface InterfaceDisplay
+{
 	
 	function display();
 }

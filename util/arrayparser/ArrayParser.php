@@ -1,16 +1,19 @@
 <?php
 
-class ArrayParser {
+class ArrayParser
+{
 	
 	private static $_instance = NULL;
 	
-	public static function instance() {
+	public static function instance()
+	{
 		if (! self::$_instance)
 			self::$_instance = new ArrayParser();
 		return self::$_instance;
 	}
 	
-	public function groupArrayByIdFirstStyle($dataArray) {
+	public function groupArrayByIdFirstStyle($dataArray)
+	{
 		$result = array();
 		foreach ($dataArray as $data) {
 			$id = $data['id'];
@@ -27,7 +30,8 @@ class ArrayParser {
 		return $data;
 	}
 	
-	public function groupArrayByIdSecondStyle($dataArray) {
+	public function groupArrayByIdSecondStyle($dataArray)
+	{
 		$group = array();
 		foreach ($dataArray as $data) {
 			$group[$data['id']][] = $data;
@@ -39,13 +43,15 @@ class ArrayParser {
 		return $data;
 	}
 	
-	public function convertAssociateArrayToObjectFirst($associateArray) {
+	public function convertAssociateArrayToObjectFirst($associateArray)
+	{
 		$JsonPhpObject = (object) $associateArray;
 		
 		return $JsonPhpObject;
 	}
 	
-	public function convertAssociateArrayToObjectSecond($associateArray) {
+	public function convertAssociateArrayToObjectSecond($associateArray)
+	{
 		//Convert Associated Array to Json Object
 		$JsonObject = json_encode($associateArray);
 		
@@ -55,7 +61,8 @@ class ArrayParser {
 		return $JsonPhpObject;
 	}
 	
-	public function convertJsonStringToObjectFirst($JsonString) {
+	public function convertJsonStringToObjectFirst($JsonString)
+	{
 		// convert Json String into Associated Array
 		$associateArray = json_decode($JsonString, true);
 		
@@ -65,7 +72,8 @@ class ArrayParser {
 		return $JsonPhpObject;
 	}
 	
-	public function convertJsonStringToObjectSecond($JsonString) {
+	public function convertJsonStringToObjectSecond($JsonString)
+	{
 		// convert Json String into Associated Array
 		$associateArray = json_decode($JsonString, true);
 		
