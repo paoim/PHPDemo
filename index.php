@@ -11,6 +11,7 @@
 		<ul>
 			<li><a href="arraydemo/">Array Demo</a></li>
 			<li><a href="formajax/">Form Ajax Demo</a></li>
+			<li><a href="phpstandard/">Namespace Demo</a></li>
 			<li><a href="classparser/">Class Parser Demo</a></li>
 			<li><a href="multipleupload/">Multiple Upload File Demo</a></li>
 			<li><a href="oopdemo/">OOP Demo</a></li>
