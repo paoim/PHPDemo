@@ -16,5 +16,6 @@ $demo->display();
 $demo = new \MySecondDemo\FirstDemo();
 $demo->display();
 
-$demo = new \MySecondDemo\SecondDemo();
+use MySecondDemo\SecondDemo as NewDemo;
+$demo = new NewDemo();
 $demo->display();
