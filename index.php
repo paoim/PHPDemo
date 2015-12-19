@@ -9,6 +9,7 @@
 	<fieldset>
 		<legend>Demo List</legend>
 		<ul>
+			<li><a href="phpsecurity/">Security Demo</a></li>
 			<li><a href="arraydemo/">Array Demo</a></li>
 			<li><a href="formajax/">Form Ajax Demo</a></li>
 			<li><a href="phpstandard/">Namespace Demo</a></li>
