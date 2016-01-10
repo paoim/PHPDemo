@@ -1,6 +1,7 @@
 <?php
 
 namespace {
+	
 	class Database
 	{
 		private $_host;
