@@ -9,6 +9,7 @@
 	<fieldset>
 		<legend>Demo List</legend>
 		<ul>
+			<li><a href="xss/">XSS Demo</a></li>
 			<li><a href="csrf/">CSRF Demo</a></li>
 			<li><a href="sqlinjection/">SQL Injection Demo</a></li>
 		</ul>
