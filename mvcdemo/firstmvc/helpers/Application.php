@@ -1,13 +1,18 @@
 <?php
 
 
+require_once 'Config.php';
 require_once 'PrintUtil.php';
+require_once 'models/Model.php';
 require_once 'controllers/Controller.php';
 
 
 class Application
 {
-	private static $_instance = null;
+	const DEFAULT_METHOD		= 'run';
+	const DEFAULT_CONTROLLER	= 'index';
+	
+	private static $_instance	= null;
 	
 	public static function instance()
 	{
@@ -60,6 +65,10 @@ class Application
 				$parameters[] = $params[$x];
 			}
 		}
+		//make default method if class name exist
+		if ($className && !$methodName) {
+			$methodName = self::DEFAULT_METHOD;
+		}
 		$dataArray = array(
 				'Class'		=> $className,
 				'Method'	=> $methodName,
@@ -83,7 +92,9 @@ class Application
 			$param = rtrim($param, '/');
 			$params = explode('/', $param);
 		} else {
-			PrintUtil::close("No Class to run this application because URL provided is wrong. The right URL should be 'index/run/123'.");
+			$params[] = self::DEFAULT_CONTROLLER;
+			$params[] = self::DEFAULT_METHOD;
+			//PrintUtil::close("No Class to run this application because URL provided is wrong. The right URL should be 'index/run/123'.");
 		}
 		//PrintUtil::display(">> End ". __METHOD__);
 		return $params;
