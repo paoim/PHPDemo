@@ -2,6 +2,7 @@
 
 require_once 'KeyArray.php';
 require_once 'GroupArray.php';
+require_once 'MultiAssoArray.php';
 require_once 'ArrayAndObject.php';
 
 
@@ -22,6 +23,13 @@ class Demo
 		$this->testKeyArray();
 		$this->testGroupArray();
 		$this->testArrayObject();
+		$this->testMultiAssociateArray();
+	}
+	
+	protected function testMultiAssociateArray()
+	{
+		$test = new MultiAssoArray();
+		$test->display();
 	}
 
 	protected function testGroupArray()
