@@ -18,6 +18,8 @@
 			<li><a href="mvcdemo/">MVC Demo</a></li>
 			<li><a href="oopdemo/">OOP Demo</a></li>
 			<li><a href="jsdemo/">JS Demo</a></li>
+			<li><a href="depreciation/">Depreciation Demo</a></li>
+			<li><a href="datedemo/">Date Demo</a></li>
 		</ul>
 	</fieldset>
 </body>

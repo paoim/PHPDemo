@@ -20,10 +20,20 @@ class Demo
 	
 	public function run()
 	{
+		$this->testSubString("Shipment Welcome to Test LLC Shipp", 32);
 		$this->testKeyArray();
 		$this->testGroupArray();
 		$this->testArrayObject();
 		$this->testMultiAssociateArray();
+		$this->testConvertStringToArray();
+	}
+	
+	protected function testSubString($str, $maxLen)
+	{
+		if (strlen($str) > 0 && strlen($str) >= $maxLen) {
+			$str = substr($str, 0, $maxLen). '...';
+		}
+		echo "<pre>"; print_r($str); echo "</pre>";
 	}
 	
 	protected function testMultiAssociateArray()
@@ -48,5 +58,13 @@ class Demo
 	{
 		$demo = new ArrayAndObject();
 		$demo->display();
+	}
+	
+	protected function testConvertStringToArray()
+	{
+		$str = "MemberRnD:12345";
+		$strArray = explode(':', $str);
+		echo "<pre>"; print_r($strArray); echo "</pre>";
+		echo "<pre>"; print_r($strArray[1]); echo "</pre>";
 	}
 }
