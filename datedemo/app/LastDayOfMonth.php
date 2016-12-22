@@ -20,6 +20,9 @@ class LastDayOfMonth
 		$date = '08/31/1990';
 		$newDate = date('m/d/Y', strtotime($date .' + 1 month')); // does not work well
 		echo "<pre>"; print_r($newDate); echo "</pre>";
+		echo "<pre>"; print_r(date('M d Y')); echo "</pre>";
+		echo "<pre>"; print_r(date('m d Y')); echo "</pre>";
+		echo "<pre>"; print_r(date('F d Y')); echo "</pre>";
 		
 		$this->_divisionDemo(480);
 		$this->_divisionDemo(288);
@@ -28,6 +31,8 @@ class LastDayOfMonth
 		
 		$this->_divisionDemo(8317.80);
 		$this->_divisionDemo(2000);
+		
+		$this->_addOneYearFromCurrentDate();
 	}
 
 	private function _addMonthToDateAndGetLastDayOfMonth($n, $date) {
@@ -53,5 +58,11 @@ class LastDayOfMonth
 				echo "<pre>"; print_r(('0.' .$strArray[1]) * 12); echo "</pre>";
 			}
 		}
+	}
+	
+	private function _addOneYearFromCurrentDate() {
+		$date = date('m/d/Y');
+		$newDate = date('m/d/Y', strtotime($date .' + 1 years'));
+		echo "<pre>"; print_r("StartDate:$date, and EndDate: $newDate"); echo "</pre>";
 	}
 }
