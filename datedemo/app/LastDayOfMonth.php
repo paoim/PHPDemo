@@ -33,6 +33,23 @@ class LastDayOfMonth
 		$this->_divisionDemo(2000);
 		
 		$this->_addOneYearFromCurrentDate();
+		
+		$this->_lastTenYearAndNextYear();
+		
+		echo "<pre>"; print_r("Current Date plus One Day: " . date('m/d/Y', strtotime(date('m/d/Y') .' + 1 day'))); echo "</pre>";
+		echo "<pre>"; print_r("Current Date minus One Year: " . date('m/d/Y', strtotime(date('m/d/Y') .' - 1 years'))); echo "</pre>";
+		
+		$currentDate = date('Y-m-d');
+		$currentMonth = date('m', strtotime($currentDate)); // 02
+		$previousMonth = date('m', strtotime("-1 month", strtotime($currentDate))); // 01
+		$nextMonth = date('m', strtotime("+1 month", strtotime($currentDate))); // 03
+		
+		echo "<pre>"; print_r($currentDate); echo "</pre>";
+		echo "<pre>"; print_r(date('Y-m', strtotime($currentDate))); echo "</pre>";
+		echo "<pre>"; print_r(date('Y', strtotime($currentDate))); echo "</pre>";
+		echo "<pre>"; print_r($currentMonth); echo "</pre>";
+		echo "<pre>"; print_r($previousMonth); echo "</pre>";
+		echo "<pre>"; print_r($nextMonth); echo "</pre>";
 	}
 
 	private function _addMonthToDateAndGetLastDayOfMonth($n, $date) {
@@ -64,5 +81,12 @@ class LastDayOfMonth
 		$date = date('m/d/Y');
 		$newDate = date('m/d/Y', strtotime($date .' + 1 years'));
 		echo "<pre>"; print_r("StartDate:$date, and EndDate: $newDate"); echo "</pre>";
+	}
+	
+	private function _lastTenYearAndNextYear() {
+		$date = date('m/d/Y');
+		$nextYear = date('m/d/Y', strtotime($date .' + 1 years')); // next year
+		$lastTenYear = date('m/d/Y', strtotime($date .' - 10 years')); // last 10 years from current date
+		echo "<pre>"; print_r("StartDate:$lastTenYear, and EndDate: $nextYear"); echo "</pre>";
 	}
 }

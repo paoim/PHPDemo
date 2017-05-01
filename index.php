@@ -20,6 +20,7 @@
 			<li><a href="jsdemo/">JS Demo</a></li>
 			<li><a href="depreciation/">Depreciation Demo</a></li>
 			<li><a href="datedemo/">Date Demo</a></li>
+			<li><a href="stringdemo/">String Demo</a></li>
 		</ul>
 	</fieldset>
 </body>
