@@ -21,6 +21,9 @@
 			<li><a href="depreciation/">Depreciation Demo</a></li>
 			<li><a href="datedemo/">Date Demo</a></li>
 			<li><a href="stringdemo/">String Demo</a></li>
+			<li><a href="mathdemo/">Math Demo</a></li>
+			<li><a href="onedrive/">OneDrive Demo</a></li>
+			<li><a href="plupload/">Upload Demo</a></li>
 		</ul>
 	</fieldset>
 </body>

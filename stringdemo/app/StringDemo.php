@@ -7,10 +7,11 @@ class StringDemo
 	}
 	
 	private function display() {
+		echo "<pre>"; print_r(substr('Welcome', 0, 1)); echo "</pre>";
 		echo "<pre>"; print_r($this->_getXXXSSN('0487')); echo "</pre>";
 		echo "<pre>"; print_r($this->_getXXXSSN('72-0487')); echo "</pre>";
 		echo "<pre>"; print_r($this->_getXXXSSN('536-72-0487')); echo "</pre>";
-		echo "<pre>"; print_r($this->makeMd5('LMD0ma!n')); echo "</pre>";
+		echo "<pre>"; print_r(($this->makeMd5('LMD0ma!n') == '369c5a2b79b61284f7574828a3141327') ? 'Yes' : 'No'); echo "</pre>";
 		echo "<pre>"; print_r($this->getSirvaShipmentID('REG 123456')); echo "</pre>";
 	}
 	

@@ -36,8 +36,21 @@ class LastDayOfMonth
 		
 		$this->_lastTenYearAndNextYear();
 		
+		$lastYearDate = date('m/d/Y', strtotime(date('m/d/Y') .' - 1 years'));
+		$calLastYearMinus_60 = date('m/d/Y', strtotime($lastYearDate .' - 60 day'));
+		$calLastYearAdd_60 = date('m/d/Y', strtotime($calLastYearMinus_60 .' + 60 day'));
+		
+		echo "<pre>"; print_r("today: " . date('Y-m-d H:i:s', strtotime('today'))); echo "</pre>";
+		echo "<pre>"; print_r("midnight today: " . date('Y-m-d H:i:s', strtotime('midnight today'))); echo "</pre>";
+		echo "<pre>"; print_r("tomorrow: " . date('Y-m-d H:i:s', strtotime('tomorrow'))); echo "</pre>";
+		echo "<pre>"; print_r("midnight tomorrow: " . date('Y-m-d H:i:s', strtotime('midnight tomorrow'))); echo "</pre>";
+		echo "<pre>"; print_r("Current Date -10 Days: " . date('Y-m-d H:i:s', strtotime(date('m/d/Y H:i:s') .' - 10 day'))); echo "</pre>";
+		
 		echo "<pre>"; print_r("Current Date plus One Day: " . date('m/d/Y', strtotime(date('m/d/Y') .' + 1 day'))); echo "</pre>";
-		echo "<pre>"; print_r("Current Date minus One Year: " . date('m/d/Y', strtotime(date('m/d/Y') .' - 1 years'))); echo "</pre>";
+		echo "<pre>"; print_r("Current Date minus One Year: " . $lastYearDate); echo "</pre>";
+		echo "<pre>"; print_r("Last Year minus 60 days: " . $calLastYearMinus_60); echo "</pre>";
+		echo "<pre>"; print_r("Last Year add 60 days: " . $calLastYearAdd_60); echo "</pre>";
+		
 		
 		$currentDate = date('Y-m-d');
 		$currentMonth = date('m', strtotime($currentDate)); // 02
